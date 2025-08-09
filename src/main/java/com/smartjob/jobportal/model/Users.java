@@ -9,9 +9,6 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "users")
 public class Users {
 
@@ -19,20 +16,91 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "full_name", nullable = false, length = 100)
-    private String fullName;
+    private String full_name;
 
-    @Column(nullable = false, unique = true, length = 150)
+
     private String email;
 
-    @Column(nullable = false, length = 255)
+
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private RoleType role;  // ADMIN or CANDIDATE
 
-    @Column(name = "created_at", updatable = false, insertable = false)
-    private Timestamp createdAt;
+
+    private Timestamp created_at;
+
+    public Users(){
+
+    }
+
+    public Users(Long id, String full_name, String email, String password, RoleType role, Timestamp created_at) {
+        this.id = id;
+        this.full_name = full_name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.created_at = created_at;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public RoleType getRole() {
+        return role;
+    }
+
+    public void setRole(RoleType role) {
+        this.role = role;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", full_name='" + full_name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", created_at=" + created_at +
+                '}';
+    }
 }
 
