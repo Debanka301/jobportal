@@ -55,7 +55,7 @@ public class AuthService {
                 // enforce only CANDIDATE by default
                 if (requested == RoleType.ADMIN) {
                     // ignore, or throw if you want to allow admin creation only via other flow
-                    role = RoleType.USER;
+                    role = RoleType.ADMIN;
                 } else {
                     role = requested;
                 }

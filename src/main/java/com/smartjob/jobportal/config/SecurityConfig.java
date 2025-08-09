@@ -3,6 +3,7 @@ import com.smartjob.jobportal.security.CustomUserDetailsService;
 import com.smartjob.jobportal.security.JWTUtils;
 import com.smartjob.jobportal.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.*;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.*;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -49,7 +50,14 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .anyRequest().authenticated()
+
+                        // Role-based access control for jobs API
+                        .requestMatchers(HttpMethod.POST, "/api/jobs").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/api/jobs/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/api/jobs/**").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/api/jobs/**").authenticated()
+
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .headers(headers -> headers.frameOptions(frame -> frame.disable())); // For H2 console
