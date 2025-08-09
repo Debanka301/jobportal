@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.smartjob</groupId>
 	<artifactId>jobportal</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Smart Job Portal Backend</name>
 	<description>Backend for Smart Job Recommendation Portal</description>
 	<url/>

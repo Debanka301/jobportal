@@ -1,7 +1,3 @@
-Here’s a **professional and beginner-friendly README** for your project so you can track learning while building the **Smart Job Recommendation Portal**.
-
----
-
 # **Smart Job Recommendation Portal**
 
 *An end-to-end application built with **React**, **Java Spring Boot**, **MySQL**, and **Machine Learning** for intelligent job matching.*
@@ -171,7 +167,3 @@ REACT_APP_API_URL=http://localhost:8080/api
 
 This project is intentionally structured to **learn and apply** key concepts step-by-step.
 Each Epic is broken into **stories** and implemented in **small commits** for easy tracking.
-
----
-
-Do you want me to also include a **"How to Learn While Building"** section so you track skills gained in each Epic? That would make it a true **learning roadmap** README.
